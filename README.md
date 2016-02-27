@@ -12,8 +12,12 @@ First, add **slider.css** and **slider.js** to your page:
 ...
 <body>
 
-<div style="width: 600px; height: 600px;"> 
-   <ul class="slider"></ul>
+<div style="width: 600px; height: 600px;"> <!-- please specify outer container dimentions -->
+   <ul class="slider">
+      <li><img src="img/sample1.jpg" alt="image"></li>
+      <li><img src="img/sample2.jpg" alt="image"></li>
+      <li><img src="img/sample3.jpg" alt="image"></li>
+   </ul>
 </div>
 
 ...
