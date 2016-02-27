@@ -65,6 +65,8 @@ autoplay: true;            -on
 autoplayTime: 3000; //default 
 autoplayTime: 2000;  - your time
 ``` 
+###Customize
+You can simply customize button and pager controls by yourself.
 
 ###Dependencies
 ```
