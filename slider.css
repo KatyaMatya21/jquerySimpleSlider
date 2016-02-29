@@ -1,5 +1,9 @@
-
 /* Slider */
+
+.slider-wrap-controls{
+  position: relative;
+}
+
 .slider-wrapper{
   position: relative;
   width: 100%;
@@ -32,57 +36,57 @@
 
 /* Buttons */
 
-.slider-wrapper .btn{
+.slider-wrap-controls .btn{
   position: absolute;
-  bottom: 0;
-  padding: 20px;
-  background: rgba(255, 0, 0, 0.2);
-  border-radius: 3px;
   display: inline-block;
   vertical-align: top;
+  background: url("img/arrow.png") 0 0 no-repeat;
   cursor: pointer;
-  color: azure;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   z-index: 2;
+  width: 30px;
+  height: 50px;
+  top:calc(50% - 25px);
 }
 
-.slider-wrapper .prev-btn{
+.slider-wrap-controls .prev-btn{
   left: 0;
+  transform: rotate(180deg);
 }
 
-.slider-wrapper .next-btn{
-  right: 0;
+.slider-wrap-controls .next-btn{
+  left: 69px;
 }
+
 
 /* Pager */
 .pager{
   position: absolute;
-  bottom: 15px;
+  bottom: -25px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  width: 100%;
   text-align: center;
 }
 
 .pager-item{
   display: inline-block;
   vertical-align: top;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   margin-right: 5px;
-  background: rgba(255, 0, 0, 0.4);
-  border: 2px solid rgba(255, 0, 0, 0.4);
+  background: #999999;
+  border: 2px solid #333333;
   border-radius: 50%;
   cursor: pointer;
   z-index: 1;
 }
 
 .pager-item.active{
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(153, 153, 153, 0.2);
 }
 
 .pager-item:last-child{

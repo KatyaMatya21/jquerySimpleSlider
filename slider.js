@@ -14,7 +14,9 @@ $(function () {
       buttons: true,
       pager: true,
       autoplay: false,
-      autoplayTime: 3000
+      autoplayTime: 3000,
+      width: 600,
+      height: 400
     };
 
     if( options ) {
@@ -39,6 +41,12 @@ $(function () {
    */
   Slider.prototype._initUp = function(){
 
+    this._container.wrap('<div class="slider-content"><div class="slider-wrapper"></div></div>');
+
+    this._sliderContent = this._container.parents('.slider-content');
+    this._sliderContent.css('width', this._defaultOptions.width);
+    this._sliderContent.css('height', this._defaultOptions.height);
+
     this.outerWidth = this._container.parent().width();
     this.outerHeight = this._container.parent().height();
     this.liCount = this._container.find('li').length;
@@ -50,7 +58,7 @@ $(function () {
 
     this._container.addClass('slider--translate');
 
-    this._container.wrap('<div class="slider-wrapper"></div>');
+    this._sliderContent.wrap('<div class="slider-wrap-controls"></div>')
   };
 
   /**
@@ -58,15 +66,16 @@ $(function () {
    * @private
    */
   Slider.prototype._createButtons = function(){
-    this.prevButton = $('<div class="prev-btn btn">Prev</div>');
-    this.nextButton = $('<div class="next-btn btn">Next</div>');
+    this.prevButton = $('<div class="prev-btn btn"></div>');
+    this.nextButton = $('<div class="next-btn btn"></div>');
     var wrapButton = $('<div class="slider-btn"></div>');
     this.prevButton.hide();
     wrapButton.append(this.prevButton);
     wrapButton.append(this.nextButton);
-    this._container.parent().append(wrapButton);
+    this._container.parents('.slider-wrap-controls').append(wrapButton);
     this.prevButton.bind('click', this._prevPic.bind(this));
     this.nextButton.bind('click', this._nextPic.bind(this));
+    this.nextButton.css('left', this.outerWidth - this.nextButton.width());
   };
 
   /**
@@ -100,19 +109,21 @@ $(function () {
     this._currentSlide = i;
     var slidePosition = this.outerWidth * i * (-1);
     this._container.css('left', slidePosition + 'px');
-    this._container.parent().find('li[data-slide]').removeClass('active');
-    this._container.parent().find('li[data-slide="'+ this._currentSlide +'"]').addClass('active');
+    this._container.parents('.slider-wrap-controls').find('li[data-slide]').removeClass('active');
+    this._container.parents('.slider-wrap-controls').find('li[data-slide="'+ this._currentSlide +'"]').addClass('active');
 
-    if(i == (this.liCount - 1)){
-      this.nextButton.fadeOut();
-    } else{
-      this.nextButton.fadeIn();
-    }
+    if(this._defaultOptions.buttons){
+      if(i == (this.liCount - 1)){
+        this.nextButton.fadeOut();
+      } else{
+        this.nextButton.fadeIn();
+      }
 
-    if( i > 0){
-      this.prevButton.fadeIn();
-    } else{
-      this.prevButton.fadeOut();
+      if( i > 0){
+        this.prevButton.fadeIn();
+      } else{
+        this.prevButton.fadeOut();
+      }
     }
   };
 
@@ -130,7 +141,8 @@ $(function () {
         itemPager.addClass('active');
       }
     }
-    this._container.parent().append(wrapPager);
+    this._container.parents('.slider-wrap-controls').append(wrapPager);
+    wrapPager.css('width', this.outerWidth + 'px');
   };
 
   /**
