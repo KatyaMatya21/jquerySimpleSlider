@@ -74,4 +74,4 @@ jQuery 1.7+
 ```
 
 ###Demo
-in development
+https://kate-work.ru/slider/slider.html
