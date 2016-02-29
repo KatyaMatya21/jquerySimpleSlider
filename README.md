@@ -12,13 +12,11 @@ First, add **slider.css** and **slider.js** to your page:
 ...
 <body>
 
-<div style="width: 600px; height: 600px;"> <!-- please specify outer container dimentions -->
    <ul class="slider">
       <li><img src="img/sample1.jpg" alt="image"></li>
       <li><img src="img/sample2.jpg" alt="image"></li>
       <li><img src="img/sample3.jpg" alt="image"></li>
    </ul>
-</div>
 
 ...
 <script src="slider.js"></script>
@@ -33,7 +31,9 @@ var options = {
   buttons: true,
   pager: true,
   autoplay: false,
-  autoplayTime: 3000
+  autoplayTime: 3000,
+  width: 600,
+  height: 400
  };
 
  var slider = new Slider('.slider', options);
@@ -41,7 +41,7 @@ var options = {
 
 ###Options
 
-**buttons** - button controls
+**buttons** - button(arrows) controls
 
 ```
 buttons: true; //default -on
@@ -65,8 +65,21 @@ autoplay: true;            -on
 autoplayTime: 3000; //default 
 autoplayTime: 2000;  - your time
 ``` 
+
+**width**  
+```
+width: 600; //default 
+width: 400;  - your size
+``` 
+
+**height**  
+```
+height: 400; //default 
+height: 200;  - your size
+``` 
+
 ###Customize
-You can simply customize button and pager controls by yourself.
+You can simply customize button(arrow) and pager controls by yourself.
 
 ###Dependencies
 ```
