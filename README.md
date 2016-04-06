@@ -86,5 +86,3 @@ You can simply customize button(arrow) and pager controls by yourself.
 jQuery 1.7+
 ```
 
-###Demo
-https://kate-work.ru/slider/slider.html
